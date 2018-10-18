@@ -37,7 +37,8 @@ async function login(user) {
         username: user.username,
         expire: Date.now() + config.TOKEN_EXPIRE
     }
-    let encode = utils.aesEncrypt(JSON.stringify(token), config.TOKEN_KEY);
+    let encode = encryptUtil.aesEncrypt(JSON.stringify(token), config.TOKEN_KEY);
+    console.log(encode)
     return encode;
 
 }
@@ -84,7 +85,7 @@ async function findUserByUsername(username) {
     console.log(result)
     if (result) {
         result.password = "";
-        res.success(result);
+        //res.success(result);
     } else {
         throw Error("查询失败");
     }

@@ -3,7 +3,7 @@ let router = express.Router();
 let utils = require("../utils/encryptUtil");
 let service = require("../service/user_service");
 //注册
-router.post("/", async (req, res) => {
+router.post("/regist", async (req, res) => {
     let body = req.body;
     console.log(body);
     res.success(await service.regist(body));
@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
 //登录
 router.post("/login", async (req, res) => {
     let result = await service.login(req.body);
-    res.success(encode);
+    res.success(result);
 
 });
 //查找用户
@@ -19,6 +19,7 @@ router.get("/:username", async (req, res) => {
     let username = req.params.username;
     console.log(username);
     let result = await service.findUserByUsername(username);
+    res.success(result);
 });
 //删除用户
 router.delete("/", async (req, res) => {
