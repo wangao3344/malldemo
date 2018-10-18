@@ -5,6 +5,7 @@ require("./db");
 let user_routes = require("./routes/user_routes");
 let category_routes = require("./routes/category_routes");
 let product_routes = require("./routes/product_routes");
+let order_router = require("./routes/order_router");
 let app = new express();
 let config = require("./config/index");
 //中间件来定义res的扩展函数
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/user", user_routes);
 app.use("/category", category_routes);
 app.use("/product", product_routes);
+app.use("/order", order_router);
 app.get("/", (req, res) => {
     res.send("测试服务器已搭建好");
 });
