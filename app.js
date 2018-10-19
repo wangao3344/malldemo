@@ -10,6 +10,8 @@ let app = new express();
 let config = require("./config/index");
 //中间件来定义res的扩展函数
 app.use(require("./middle_ware/res_middle"));
+app.use(require("./middle_ware/token_middle"));
+app.use(require("./middle_ware/permisson_middle"));
 app.use(morgan("combined"));
 app.use(express.json());
 //定义路由级别的中间件
@@ -25,3 +27,4 @@ app.use((err, req, res, next) => {
     res.fail(err.toString());
 });
 app.listen(config.PORT);
+console.log(config.PORT)
