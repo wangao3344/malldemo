@@ -4,6 +4,6 @@ const dev = {
     TOKEN_EXPIRE: 1000 * 60 * 60 * 24 * 7,
     TOKEN_KEY: "DEV_MANGER",
     PageCount: 1,
-    LimitCount: 2
+    LimitCount: 5
 }
 module.exports = dev;
